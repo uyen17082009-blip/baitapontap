@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import LetterForm from './LetterForm';
+import { useEffect, useState } from 'react';
+import './App.css';
+import LetterForm from './component/LetterForm'; 
+import LetterList from './component/LetterList';
 
 function App() {
   const [letters, setLetters] = useState([]);
-  
+
   useEffect(() => {
-    console.log("App mounted - lần reader đầu tiên");
+    console.log("App mounted");
   }, []);
 
   useEffect(() => {
-    console.log("Letters updated:", letters);
+    console.log("Letter updated:", letters);
   }, [letters]);
 
   const addLetter = (content) => {
@@ -25,12 +24,13 @@ function App() {
     ]);
   };
 
-  return(
-    <div>
+  return (
+    <div className="App">
+      <h1>My Letters</h1>
       <LetterForm onAdd={addLetter} />
       <LetterList letters={letters} />
     </div>
-  )
+  );
 }
 
 export default App;

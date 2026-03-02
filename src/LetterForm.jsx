@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function LetterForm({ onAdd }) {
-    const [text, setText ] = useState("");
+    const [text, setText] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,16 +12,17 @@ function LetterForm({ onAdd }) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
+        <form onSubmit={handleSubmit} >
+            <input 
                 type="text"
-                placeholder="Viết Letter..."
+                placeholder="Viet Letter..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                style={{ width: "100%", padding: "8px"}}
+                style={{ width: "100%", padding: "8px" }}
             />
-            <button style={{ marginTop: "10px" }}> Gửi </button>
+            <button style={{ marginTop: "10px" }} type="submit">Send</button>
         </form>
     );
 }
+
 export default LetterForm;
